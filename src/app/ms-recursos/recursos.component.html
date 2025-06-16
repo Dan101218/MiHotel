@@ -1,0 +1,80 @@
+<div class="d-flex" style="min-height: 100vh; background-color: #f5f7fb;">
+  <!-- Sidebar -->
+  <aside class="p-3 bg-white shadow-sm" style="width: 250px;">
+    <h4 class="text-primary fw-bold mb-4">Telos</h4>
+    <ul class="nav flex-column">
+      <li class="nav-item mb-2"><a class="nav-link text-dark" href="#">Dashboard</a></li>
+      <li class="nav-item mb-2"><a class="nav-link text-dark" href="#">Product</a></li>
+      <li class="nav-item mb-2">
+        <a class="nav-link active bg-primary text-white rounded px-3" href="#">Recursos</a>
+      </li>
+      <li class="nav-item mb-2"><a class="nav-link text-dark" href="#">Income</a></li>
+      <li class="nav-item mb-2"><a class="nav-link text-dark" href="#">Promote</a></li>
+    </ul>
+    <div class="mt-5 p-3 bg-gradient rounded text-white text-center" style="background: linear-gradient(to right, #8e2de2, #f27121);">
+      <p class="mb-1">Upgrade to PRO</p>
+      <button class="btn btn-light btn-sm fw-bold">Get Pro Now!</button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="flex-grow-1 p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h2 class="fw-bold mb-1">Recursos</h2>
+        <small class="text-success">Active Members</small>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchText">
+        <button class="btn btn-primary fw-bold">Nuevo recurso +</button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-borderless align-middle bg-white shadow-sm rounded">
+        <thead class="text-muted">
+          <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Capacidad</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let recurso of recursosFiltrados()">
+            <td>{{ recurso.nombre }}</td>
+            <td>{{ recurso.tipo }}</td>
+            <td>{{ recurso.capacidad }}</td>
+            <td>
+              <span class="badge px-3 py-2 rounded-pill"
+                    [ngClass]="{
+                      'bg-success text-white': recurso.estado === 'Activo',
+                      'bg-danger text-white': recurso.estado === 'Inactivo'
+                    }">
+                {{ recurso.estado }}
+              </span>
+            </td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm me-1">Editar</button>
+              <button class="btn btn-outline-danger btn-sm">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Paginación falsa -->
+    <nav class="mt-4">
+      <ul class="pagination justify-content-end">
+        <li class="page-item disabled"><a class="page-link">‹</a></li>
+        <li class="page-item active"><a class="page-link">1</a></li>
+        <li class="page-item"><a class="page-link">2</a></li>
+        <li class="page-item"><a class="page-link">3</a></li>
+        <li class="page-item"><a class="page-link">4</a></li>
+        <li class="page-item"><a class="page-link">…</a></li>
+        <li class="page-item"><a class="page-link">›</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>

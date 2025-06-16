@@ -1,3 +1,4 @@
+<!-- login.component.html -->
 <div class="vh-100 d-flex justify-content-center align-items-center" style="background: linear-gradient(to right, #8e2de2, #f27121);">
   <div class="card p-4 shadow-lg" style="width: 22rem;">
     <h2 class="text-center mb-4">Iniciar Sesión</h2>
@@ -9,7 +10,7 @@
         <input type="password" class="form-control" placeholder="Password" required>
       </div>
       <div class="d-grid mb-3">
-        <a class="btn btn-dark d-block" [routerLink]="['/recursos']">Iniciar Sesión</a>
+        <a routerLink="/recursos" class="btn btn-dark">Iniciar Sesión</a>
       </div>
     </form>
     <div class="text-center text-muted">
@@ -18,5 +19,3 @@
     </div>
   </div>
 </div>
-<!-- app.component.html -->
-<router-outlet></router-outlet>
